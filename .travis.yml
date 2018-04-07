@@ -6,7 +6,7 @@ services:
 before_script:
   - composer self-update
   - composer install --no-interaction
-  - mysql -u root -e 'CREATE DATABASE ci_testing'
+  - mysql -u root --password="" -e "CREATE DATABASE ci_testing"
   - php artisan migrate
   - php artisan db:seed --class=productSeeder
 env:
