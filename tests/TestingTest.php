@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use App\Product;
 
 class TestingTest extends TestCase
 {
@@ -13,6 +14,7 @@ class TestingTest extends TestCase
      */
     public function testExample()
     {
-        $this->assertTrue(5==5);
+    	$res = Product::where('name','LIKE','test prod')->first() != null;
+        $this->assertTrue($res);
     }
 }
