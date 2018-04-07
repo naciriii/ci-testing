@@ -7,11 +7,6 @@ before_script:
   - composer self-update
   - composer install --no-interaction
   - mysql -u root --password="" -e "CREATE DATABASE ci_testing"
+  - cp env.travis .env
   - php artisan migrate
   - php artisan db:seed --class=productSeeder
-env:
-  -APP_KEY=base64:bRd8e3miL+UDbol1o0LagBgYDCS/vTdex3I2+x5IcY4=
-  -DB_DATABASE=ci-testing
-  -APP_ENV=testing
-  -DB_USERNAME=root
-  -DB_PASSWORD=
